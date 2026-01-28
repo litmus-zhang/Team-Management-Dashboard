@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import Input from '../components/common/Input';
+import { Button } from '@/components/ui/button';
 
 const AuthPage = ({ auth, db }) => {
     const [isLogin, setIsLogin] = useState(true);
@@ -34,9 +35,9 @@ const AuthPage = ({ auth, db }) => {
                 {error && <p className="text-red-500 text-sm text-center">{error}</p>}
                 <Input label="Email Address" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <Input label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <button onClick={handleAuthAction} className="w-full py-3 px-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700">
+                <Button onClick={handleAuthAction} className="w-full py-3 px-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700">
                     {isLogin ? 'Login' : 'Create Account'}
-                </button>
+                </Button>
                 <p className="text-center text-sm">
                     {isLogin ? "Don't have an account?" : "Already have an account?"}
                     <button onClick={() => setIsLogin(!isLogin)} className="font-medium text-blue-600 hover:underline ml-1">

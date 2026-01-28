@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { signOut } from 'firebase/auth';
-import StatCard from '../components/common/StatCard';
-import StatusBadge from '../components/common/StatusBadge';
-import { UsersIcon, CheckCircleIcon, ClockIcon, LogoutIcon, DownloadIcon } from '../components/common/Icons';
-import CompetitionsTab from '../components/admin/CompetitionsTab';
-import EventsTab from '../components/admin/EventsTab';
-import AnalyticsTab from '../components/admin/AnalyticsTab';
-import TeamDetailModal from '../components/modals/TeamDetailModal';
+import StatCard from '../components/common/StatCard.jsx';
+import StatusBadge from '../components/common/StatusBadge.jsx';
+import { UsersIcon, CheckCircleIcon, ClockIcon, LogoutIcon, DownloadIcon } from '../components/common/Icons.jsx';
+import CompetitionsTab from '../components/admin/CompetitionsTab.jsx';
+import EventsTab from '../components/admin/EventsTab.jsx';
+import AnalyticsTab from '../components/admin/AnalyticsTab.jsx';
+import TeamDetailModal from '../components/modals/TeamDetailModal.jsx';
 
 const AdminDashboard = ({ teams, competitions, events, isLoading, db, auth }) => {
     const [activeTab, setActiveTab] = useState('teams');
@@ -82,7 +82,7 @@ const AdminDashboard = ({ teams, competitions, events, isLoading, db, auth }) =>
                     {activeTab === 'teams' && (
                         <div>
                             <div className="flex flex-col md:flex-row gap-4 mb-6">
-                                <div className="relative flex-grow">
+                                <div className="relative grow">
                                     <input type="text" placeholder="Search..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="w-full pl-10 pr-4 py-2 border rounded-lg" />
                                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

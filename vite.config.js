@@ -1,12 +1,22 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { visualizer } from "rollup-plugin-visualizer";
+import tailwindcss from "@tailwindcss/vite";
+import path from "path"
+
 
 export default defineConfig({
   plugins: [
     react(),
     visualizer({ open: true }), // This will open a report in your browser after build
+    tailwindcss(),
+    
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   build: {
     chunkSizeWarningLimit: 1000,
   },
